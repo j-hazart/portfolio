@@ -1,17 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import avatar from "../assets/avatar.png"
 ---
 
 <BaseLayout title="Jessy Hazart | Développeur web">
-    <main>
-        <section>
-            <h1>jessy hazart</h1>
-            <p>Développeur web</p>
-            <div>
+    <main class="flex w-full h-full max-w-7xl justify-center items-center text-primary">
+        <section class="flex-1 flex flex-col items-center gap-4">
+            <h1 class="capitalize text-6xl font-bold">jessy hazart</h1>
+            <p class="text-3xl">Développeur web</p>
+            <div class="text-tertiary flex gap-4">
                 <a href="https://linkedin/jessy-hazart" target="_blank">Linkedin</a>
                 <a href="https://github.com/j-hazart" target="_blank">Github</a>
             </div>
         </section>
-        <img src="photo" alt="phot de Jessy Hazart">
+        <figure class="flex-1 flex justify-center">
+            <img class="max-w-md" src={avatar} alt="phot de Jessy Hazart" />
+        </figure>
     </main>
 </BaseLayout>
