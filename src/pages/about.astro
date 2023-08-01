@@ -1,27 +1,30 @@
 ---
 import SkillsType from "../components/SkillsType.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import logo from "../services/technoLogo"
-const frontend = [
-    "javascript"
-]
+
+const frontend = ["javascript", "react", "astro", "tailwind"]
+const backend = ["node", "express", "mysql", "prisma"]
+const versioning = ["git", "github"]
 ---
 
 <BaseLayout title="Jessy Hazart | Présentation">
-    <main>
-        <h1>à propos de moi</h1>
-        <section>
-            <h2>Bonjour</h2>
-            <p>
+    <main class="flex flex-col w-full h-full max-w-7xl justify-center items-center text-primary gap-16">
+        <section class=" flex flex-col gap-4 w-2/3 bg-secondary p-4 rounded-xl">
+            <h1 class="text-3xl text-center">Bonjour</h1>
+            <p class="text-center">
                 Passionné par l'univers du web et des nouvelles technologies 
                 depuis mon plus jeune âge, je me suis spécialisé dans le 
                 développement web afin de créer des solutions numériques 
                 innovantes et intuitives
             </p>
         </section>
-        <section>
-            <h2>mes compétences techniques</h2>
-            <SkillsType type="front-end" technologies={frontend}/>
+        <section class=" flex flex-col gap-16 w-full">
+            <h2 class="text-3xl text-center font-bold capitalize">Mes compétences techniques</h2>
+            <div class="flex gap-16 justify-center w-full">
+                <SkillsType type="front-end" technologies={frontend}/>
+                <SkillsType type="back-end" technologies={backend}/>
+                <SkillsType type="versioning" technologies={versioning}/>
+            </div>
         </section>
     </main>
 </BaseLayout>
