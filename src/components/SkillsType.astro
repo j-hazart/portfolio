@@ -1,0 +1,13 @@
+---
+import Skill from "./Skill.astro";
+const {type, technologies} = Astro.props;
+---
+
+<div>
+    <h3>{type}</h3>
+    <ul>
+        {
+            technologies.map((techno) => <Skill logo={techno.logo} techno={techno.name} />)
+        }
+    </ul>
+</div>

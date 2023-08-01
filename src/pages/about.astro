@@ -1,0 +1,30 @@
+---
+import SkillsType from "../components/SkillsType.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import logo from "../assets/logo.svg"
+const frontend = [
+    {
+        name: "javascript",
+        logo: logo,
+    }
+]
+---
+
+<BaseLayout title="Jessy Hazart | Présentation">
+    <main>
+        <h1>à propos de moi</h1>
+        <section>
+            <h2>Bonjour</h2>
+            <p>
+                Passionné par l'univers du web et des nouvelles technologies 
+                depuis mon plus jeune âge, je me suis spécialisé dans le 
+                développement web afin de créer des solutions numériques 
+                innovantes et intuitives
+            </p>
+        </section>
+        <section>
+            <h2>mes compétences techniques</h2>
+            <SkillsType type="front-end" technologies={frontend}/>
+        </section>
+    </main>
+</BaseLayout>
