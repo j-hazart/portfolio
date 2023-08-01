@@ -1,4 +1,5 @@
 ---
+import NavLink from "./NavLink.astro";
 import logo from "../assets/logo.svg";
 ---
 
@@ -6,9 +7,9 @@ import logo from "../assets/logo.svg";
     <a href="/"><img src={logo} alt="logo" width="36px" /></a>
     <nav>
         <ul class="text-primary flex gap-8 uppercase font-bold items-center">
-            <li><a href="/about">présentation</a></li>
-            <li><a href="/projets">projets</a></li>
-            <li><a href="/contact">contact</a></li>
+            <NavLink url="/about" title="présentation" />
+            <NavLink url="/projects" title="projets" />
+            <NavLink url="/contact" title="contact" />
         </ul>
     </nav>
 </header>
