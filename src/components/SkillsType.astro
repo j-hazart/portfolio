@@ -7,7 +7,7 @@ const {type, technologies} = Astro.props;
     <h3>{type}</h3>
     <ul>
         {
-            technologies.map((techno) => <Skill logo={techno.logo} techno={techno.name} />)
+            technologies.map((techno) => <Skill techno={techno} />)
         }
     </ul>
 </div>

@@ -1,8 +1,9 @@
 ---
-const {logo, techno} = Astro.props;
+import logo from "../services/technoLogo"
+const {techno} = Astro.props;
 ---
 
 <li>
-    <img src={logo} alt={`${techno} logo`}>
+    <img src={logo[techno]} alt={`${techno} logo`}>
     <span>{techno}</span>
 </li>
