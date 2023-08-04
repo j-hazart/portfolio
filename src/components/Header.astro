@@ -1,14 +1,35 @@
 ---
+import NavLink from "./NavLink.astro";
 import logo from "../assets/logo.svg";
+import burger from "../assets/burger.svg"
 ---
 
 <header class="flex max-w-7xl w-full justify-between items-center">
     <a href="/"><img src={logo} alt="logo" width="36px" /></a>
-    <nav>
-        <ul class="text-primary flex gap-8 uppercase font-bold items-center">
-            <li><a href="/about">présentation</a></li>
-            <li><a href="/projets">projets</a></li>
-            <li><a href="/contact">contact</a></li>
+    <img class="max-md:block hidden z-30" id="burger" src={burger} alt="">
+    <nav id="menu" class="max-md:-translate-x-full max-md:absolute top-0 left-0 max-md:w-full max-md:h-full max-md:z-20 flex max-md:justify-center max-md:items-center max-md:bg-secondary transition-all">
+        <ul class="max-md:justify-evenly max-md:h-full max-md:text-3xl max-md:flex-col text-primary flex gap-8 uppercase font-bold items-center">
+            <NavLink url="/about" title="présentation" />
+            <NavLink url="/projects" title="projets" />
+            <NavLink url="/contact" title="contact" />
         </ul>
     </nav>
 </header>
+
+<script>
+    /* max-md:hidden */
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+    
+    burger.addEventListener("click", toggleMenu);
+
+    function toggleMenu() {
+        console.log("ok");
+        menu.classList.toggle("max-md:-translate-x-full");
+        menu.classList.toggle("open");
+        const isOpen = [...menu.classList].includes('open');
+        burger.src = isOpen 
+        ? "src/assets/x-circle.svg" 
+        : "src/assets/burger.svg" ;
+    }
+</script>

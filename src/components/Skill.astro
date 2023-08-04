@@ -1,0 +1,9 @@
+---
+import logo from "../services/technoLogo"
+const {techno} = Astro.props;
+---
+
+<li class="flex items-center gap-8">
+    <img class="w-12" src={logo[techno]} alt={`${techno} logo`}>
+    <span class="capitalize">{techno}</span>
+</li>
