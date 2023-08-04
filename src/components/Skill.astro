@@ -3,7 +3,7 @@ import logo from "../services/technoLogo"
 const {techno} = Astro.props;
 ---
 
-<li class="flex items-center gap-8">
+<li class="flex items-center gap-8 max-md:flex-col max-md:gap-4">
     <img class="w-12" src={logo[techno]} alt={`${techno} logo`}>
-    <span class="capitalize">{techno}</span>
+    <span class="capitalize max-sm:hidden">{techno}</span>
 </li>
