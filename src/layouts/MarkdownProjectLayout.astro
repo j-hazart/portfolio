@@ -1,0 +1,208 @@
+<!-- ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import colors from "../services/technoColor"
+
+const {frontmatter} = Astro.props
+---
+<BaseLayout title={`Jessy Hazart | ${frontmatter.title}`}>
+<main class="flex flex-col w-full h-screen max-w-7xl items-center text-primary gap-8 mt-8">
+    
+        <h1 class="text-4xl font-bold capitalize">{frontmatter.title}</h1>
+        <section class="w-2/3 gap-4 flex flex-col">
+            <slot />
+        </section>
+        <section class="w-2/3 flex flex-col gap-4 items-center ">
+            <div class="flex gap-2">
+            {
+                frontmatter.tags.sort().map((tag) => <p style={`background-color:${colors[tag]+"30"};border:1px solid ${colors[tag]}`} class="text-center  backdrop-brightness-200 rounded-full py-1 px-4">{tag}</p>)
+            }
+            </div>
+        </section>
+    
+    <section class="h-full w-2/3 justify-center items-center flex flex-col gap-4 mt-8">
+        <h2 class="text-3xl font-bold">Gallerie</h2>
+        <div class="container flex gap-8 w-full h-full relative">
+        {
+            frontmatter.images.map((img) => <div style={`background: no-repeat url(${img.url}) center;background-size:cover`} class="image w-full h-full bg-cover bg-center bg-no-repeat flex-1 rounded-xl hover:flex-[12] transition-all ease-in-out duration-700"></div> )
+        }
+        </div>
+    </section>
+    <section class="flex text-tertiary my-8 gap-8">
+        {
+            frontmatter.repo && <a class="text-xl w-max relative after:content-[''] after:h-px after:left-[51%] after:right-[51%] after:bottom-0 after:bg-tertiary after:absolute hover:after:left-0 hover:after:right-0 after:transition-all" href={frontmatter.repo}>Github</a>
+        }
+        {
+            frontmatter.website && <a class="text-xl w-max relative after:content-[''] after:h-px after:left-[51%] after:right-[51%] after:bottom-0 after:bg-tertiary after:absolute hover:after:left-0 hover:after:right-0 after:transition-all" href={frontmatter.website}>Site web</a>
+        }
+        
+    </section>
+</main>
+</BaseLayout>
+
+<style>
+.container:hover .image:not(:hover){
+opacity: 0.3;
+} 
+</style> -->
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import colors from "../services/technoColor"
+import close from "../assets/x-circle.svg"
+import left from "../assets/left.svg"
+import right from "../assets/right.svg"
+
+const {frontmatter} = Astro.props
+const allImages = await Astro.glob('../uploads/**/*');
+const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder))
+---
+<BaseLayout title={`Jessy Hazart | ${frontmatter.title}`}>
+<main class="flex max-w-7xl w-full h-full py-16 text-primary gap-16 relative">
+
+    <section class="flex flex-col gap-8 flex-[3]">
+        <h1 class="text-4xl font-bold capitalize">{frontmatter.title}</h1>
+
+        <section class=" gap-4 flex flex-col">
+            <slot />
+        </section>
+
+        <section class="h-full justify-center items-center flex flex-col gap-4 mt-8">
+            <h2 class="text-3xl font-bold">Gallerie</h2>
+            <div class="container flex gap-8 w-full h-full relative">
+            {
+                images.map((img) => <div id={img.default.charAt(img.default.length - 5 )} style={`background: url(${img.default});background-repeat:no-repeat; background-position: center;background-size:cover`} class="image w-full h-full bg-cover cursor-pointer bg-center bg-no-repeat flex-1 rounded-xl hover:flex-[12] transition-all ease-in-out duration-700"></div> )
+            }
+            </div>
+        </section>
+    </section>
+
+    <aside class="flex-1 flex flex-col gap-8 bg-secondary p-4 rounded-xl h-max">
+        <section class="flex">
+            <div class="flex flex-col gap-8 flex-wrap">
+                <h2 class="text-xl font-bold underline">Technologies</h2>
+                <div class="flex gap-2 flex-wrap ml-4">
+                    {
+                        frontmatter.tags.sort().map((tag) => <p style={`background-color:${colors[tag]+"30"};border:1px solid ${colors[tag]}`} class="text-center capitalize backdrop-brightness-200 rounded-full py-1 px-4">{tag}</p>)
+                    }
+                </div>
+            </div>
+        </section>
+    
+        <section class="flex flex-col gap-8">
+            <h2 class="text-xl font-bold underline">Liens</h2>
+                <div class="flex gap-2 flex-wrap ml-4">
+                    {
+                        frontmatter.repo && 
+                        <div>
+                            <h3>Github :</h3>
+                            <a class="text-tertiary hover:underline" href={frontmatter.repo}>{frontmatter.repo}</a>
+                        </div>
+                    }
+                    {
+                        frontmatter.website &&
+                        <div>
+                            <h3>Site web :</h3>
+                            <a class="text-tertiary hover:underline" href={frontmatter.website}>{frontmatter.website}</a>
+                        </div>
+                    }
+                </div>   
+        </section>
+    </aside>
+    
+</main>
+<figure id="figure" class="absolute z-10 flex flex-col h-full w-full top-0 left-0 bg-[#0000009b] justify-center items-center gap-4">
+    <div class="md:w-2/3 2xl:w-1/2 h-max relative">
+        <img id="largeImg" class=" rounded-xl" src={images[0].default} alt=`capture d'écran ${frontmatter.title}`>
+        <button id="leftButton" type="button" class="absolute top-1/2 -translate-y-1/2 -left-16"><img class="w-10" src={left} alt="left arrow"/></button>
+        <button id="rightButton" type="button" class="absolute top-1/2 -translate-y-1/2 -right-16"><img class="w-10" src={right} alt="right arrow"/></button>
+        <button id="closeButton" type="button" class="absolute -right-8 -top-8 text-primary">
+            <img src={close} alt="close button">
+        </button>
+    </div>
+    <ul id="indicators" class="flex gap-8">
+        {
+            images.map(() => <li class="indicator w-2 h-2 bg-tertiary rounded-full"></li>)
+        }
+    </ul>
+</figure>
+</BaseLayout>
+
+<style>
+    .container:hover .image:not(:hover){
+        opacity: 0.3;
+    }
+
+</style>
+<script is:inline>
+    const figure = document.querySelector("#figure");
+    const largeImg = document.querySelector("#largeImg");
+     
+    const gallery = document.querySelector(".container");
+    const images = gallery.children;
+    const imagesMaxNumber = images.length;
+    let currentImageId = 1;
+
+    const indicators = document.querySelectorAll('.indicator');
+
+    function getPath(url){
+        return url.match(/url\("(.+)"\)/)[1];
+    }
+
+    [...images].forEach((img) => {
+        img.addEventListener("click", (e) => {
+            changeCurrentImage(largeImg, e.target, img.id)
+            setCurrentIndicator(img.id - 1)
+            figure.classList.toggle('hidden');
+            figure.classList.toggle('flex');
+        })
+    })
+
+    const closeButton = document.querySelector("#closeButton");
+    closeButton.addEventListener("click", () => {
+            figure.classList.toggle('hidden');
+            figure.classList.toggle('flex');
+        });
+
+    function changeCurrentImage(oldImg, newImg, newImgId){
+        oldImg.src = getPath(newImg.style.backgroundImage);
+        currentImageId = parseInt(newImgId);
+    }
+
+    const leftButton = document.querySelector("#leftButton");
+    const rightButton = document.querySelector("#rightButton");
+    function switchImage(toRight = false){
+            const id = currentImageId - 1;
+            const comparator = toRight ? imagesMaxNumber : 1;
+            const resetValue = toRight ? 0 : imagesMaxNumber - 1 ;
+            const newId = currentImageId === comparator
+            ? resetValue
+            : toRight ? id + 1 : id - 1;
+
+            const newImg = images[newId];
+            changeCurrentImage(largeImg, newImg, newImg.id);
+            setCurrentIndicator(newId)
+        
+    }
+    
+        leftButton.addEventListener("click", () => {
+             switchImage();
+        })
+
+        rightButton.addEventListener("click", () => {
+            switchImage(true);
+        })
+
+        function setCurrentIndicator(id){
+            indicators.forEach((indicator) => {
+                changeColor(indicator, true);
+            })
+            changeColor(indicators[id])
+        }
+
+        function changeColor(element, all = false){
+                element.classList.add(all ? 'bg-primary' : 'bg-tertiary')
+                element.classList.remove(all ? 'bg-tertiary' : 'bg-primary')
+        }
+    
+    
+</script>

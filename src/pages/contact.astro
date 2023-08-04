@@ -5,22 +5,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout title="Jessy Hazart | Contact">
     <main class="flex flex-col w-full h-full max-w-7xl justify-center gap-8 items-center text-primary">
         <h1 class="uppercase text-3xl font-bold">Laissez votre message</h1>
-        <form class="flex flex-col gap-4 w-2/3" action="">
+        <form class="flex flex-col gap-4 w-2/3" action="https://formspree.io/f/xleygalr" method="POST">
             <div class="flex gap-4 w-full">
                 <div class="flex flex-col gap-1 flex-1">
                     <label class="ml-2" for="name">Nom</label>
-                    <input class="bg-secondary p-2 rounded-xl" type="text" />
+                    <input id="name" name="name" class="bg-secondary p-2 rounded-xl" type="text" required/>
                 </div>
                 <div class="flex flex-col gap-1 flex-1">
                     <label class="ml-2" for="email">E-mail</label>
-                    <input class="bg-secondary p-2 rounded-xl" type="email" />
+                    <input id="email" name="email" class="bg-secondary p-2 rounded-xl" type="email" required/>
                 </div>
             </div>
             <div class="flex flex-col gap-1">
                 <label class="ml-2" for="message">Message</label>
-                <textarea class="bg-secondary p-4 rounded-xl resize-none" rows="10"></textarea>
+                <textarea id="message" name="message" class="bg-secondary p-4 rounded-xl resize-none" rows="10" required></textarea>
             </div>
-            <button class="active:brightness-75 active:shadow-[inset_0_0_10px_#000] px-4 py-2 bg-tertiary w-max self-center rounded-xl font-bold text-secondary" type="submit" disabled >Envoyer</button>
+            <button id="sendButton" class="active:brightness-75 active:shadow-[inset_0_0_10px_#000] px-4 py-2 bg-tertiary w-max self-center rounded-xl font-bold text-secondary" type="submit" >Envoyer</button>
         </form>
     </main>
 </BaseLayout>
+
+<script>
+    const button = document.querySelector('#sendButton');
+    button.addEventListener("click", (e) => {
+        
+    });  
+   
+</script>

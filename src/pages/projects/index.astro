@@ -1,0 +1,19 @@
+---
+import Card from "../../components/Card.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro"
+const allProjects = await Astro.glob('./*.md');
+const allImages = await Astro.glob('../../uploads/**/*1.png');
+console.log()
+
+---
+
+<BaseLayout title="Jessy Hazart | Projets">
+    <main class="flex flex-col gap-16 mt-16 w-full  max-w-7xl items-center text-primary">
+        <h1 class="text-4xl font-bold capitalize">Mes Projets</h1>
+        <ul class="grid gap-8 grid-cols-2 w-2/3">
+            {
+                allProjects.map((project) => <Card url={project.url} title={project.frontmatter.title} thumbnail={project.frontmatter.thumbnail} description={project.frontmatter.description} /> )
+            }
+        </ul>
+    </main>
+</BaseLayout>
