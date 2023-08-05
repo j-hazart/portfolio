@@ -104,10 +104,10 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
                         </div>
                     }
                     {
-                        frontmatter.repo &&
+                        frontmatter.website &&
                         <div class="flex flex-col max-lg:items-center">
                             <h3>Site web :</h3>
-                            <a class="text-tertiary hover:underline" href={frontmatter.website}>{frontmatter.repo}</a>
+                            <a class="text-tertiary hover:underline" href={frontmatter.website}>{frontmatter.website}</a>
                         </div>
                     }
                 </div>   
