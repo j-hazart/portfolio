@@ -57,20 +57,25 @@ const allImages = await Astro.glob('../uploads/**/*');
 const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder))
 ---
 <BaseLayout title={`Jessy Hazart | ${frontmatter.title}`}>
-<main class="flex max-w-7xl w-full h-full py-16 text-primary gap-16 relative">
+<main class="flex max-lg:flex-col max-w-7xl w-full min-h-full lg:h-[calc(100vh-6.25rem)] max-md:pt-8 pt-16 text-primary gap-16 relative">
 
-    <section class="flex flex-col gap-8 flex-[3]">
-        <h1 class="text-4xl font-bold capitalize">{frontmatter.title}</h1>
+    <section class="flex flex-col gap-8 flex-[3] min-h-full">
+        <h1 class="text-4xl font-bold capitalize max-md:text-center">{frontmatter.title}</h1>
 
         <section class=" gap-4 flex flex-col">
             <slot />
         </section>
 
-        <section class="h-full justify-center items-center flex flex-col gap-4 mt-8">
+        <section class="h-full justify-center items-center flex flex-col gap-4 mt-8 flex-1">
             <h2 class="text-3xl font-bold">Gallerie</h2>
-            <div class="container flex gap-8 w-full h-full relative">
+            <div class="container flex max-md:flex-col gap-8 w-full max-md:h-screen max-lg:h-[50vh] h-full relative max-md:hidden">
             {
                 images.map((img) => <div id={img.default.charAt(img.default.length - 5 )} style={`background: url(${img.default});background-repeat:no-repeat; background-position: center;background-size:cover`} class="image w-full h-full bg-cover cursor-pointer bg-center bg-no-repeat flex-1 rounded-xl hover:flex-[12] transition-all ease-in-out duration-700"></div> )
+            }
+            </div>
+            <div class="md:hidden flex flex-col gap-8">
+            {
+                images.map((img) => <img class="rounded-xl" src={img.default} alt={`capture d'écran ${frontmatter.title}`}/> )
             }
             </div>
         </section>
@@ -78,9 +83,9 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
 
     <aside class="flex-1 flex flex-col gap-8 bg-secondary p-4 rounded-xl h-max">
         <section class="flex">
-            <div class="flex flex-col gap-8 flex-wrap">
+            <div class="flex flex-col gap-8 flex-wrap max-lg:items-center max-lg:w-full">
                 <h2 class="text-xl font-bold underline">Technologies</h2>
-                <div class="flex gap-2 flex-wrap ml-4">
+                <div class="flex gap-2 flex-wrap ml-4 max-lg:justify-center">
                     {
                         frontmatter.tags.sort().map((tag) => <p style={`background-color:${colors[tag]+"30"};border:1px solid ${colors[tag]}`} class="text-center capitalize backdrop-brightness-200 rounded-full py-1 px-4">{tag}</p>)
                     }
@@ -88,21 +93,21 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
             </div>
         </section>
     
-        <section class="flex flex-col gap-8">
+        <section class="flex flex-col gap-8 max-lg:items-center">
             <h2 class="text-xl font-bold underline">Liens</h2>
-                <div class="flex gap-2 flex-wrap ml-4">
+                <div class="flex gap-2 flex-wrap lg:ml-4 max-md:flex-col max-md:gap-8 max-lg:w-full max-lg:justify-evenly">
                     {
                         frontmatter.repo && 
-                        <div>
+                        <div class="flex flex-col max-lg:items-center">
                             <h3>Github :</h3>
                             <a class="text-tertiary hover:underline" href={frontmatter.repo}>{frontmatter.repo}</a>
                         </div>
                     }
                     {
-                        frontmatter.website &&
-                        <div>
+                        frontmatter.repo &&
+                        <div class="flex flex-col max-lg:items-center">
                             <h3>Site web :</h3>
-                            <a class="text-tertiary hover:underline" href={frontmatter.website}>{frontmatter.website}</a>
+                            <a class="text-tertiary hover:underline" href={frontmatter.website}>{frontmatter.repo}</a>
                         </div>
                     }
                 </div>   
@@ -110,7 +115,7 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
     </aside>
     
 </main>
-<figure id="figure" class="absolute z-10 flex flex-col h-full w-full top-0 left-0 bg-[#0000009b] justify-center items-center gap-4">
+<figure id="figure" class="absolute z-10 hidden flex-col h-full w-full top-0 left-0 bg-[#0000009b] justify-center items-center gap-4">
     <div class="md:w-2/3 2xl:w-1/2 h-max relative">
         <img id="largeImg" class=" rounded-xl" src={images[0].default} alt=`capture d'écran ${frontmatter.title}`>
         <button id="leftButton" type="button" class="absolute top-1/2 -translate-y-1/2 -left-16"><img class="w-10" src={left} alt="left arrow"/></button>
