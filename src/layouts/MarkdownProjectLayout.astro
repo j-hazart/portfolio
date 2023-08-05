@@ -53,7 +53,7 @@ import left from "../assets/left.svg"
 import right from "../assets/right.svg"
 
 const {frontmatter} = Astro.props
-const allImages = await Astro.glob('../uploads/**/*');
+const allImages = await Astro.glob('/public/uploads/**/*');
 const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder))
 ---
 <BaseLayout title={`Jessy Hazart | ${frontmatter.title}`}>
