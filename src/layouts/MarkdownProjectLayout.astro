@@ -81,33 +81,33 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
         </section>
     </section>
 
-    <aside class="flex-1 flex flex-col gap-8 bg-secondary p-4 rounded-xl h-max">
-        <section class="flex">
-            <div class="flex flex-col gap-8 flex-wrap max-lg:items-center max-lg:w-full">
+    <aside class="flex-1 flex flex-col gap-8 h-full">
+        <section class="flex bg-secondary p-4 rounded-xl">
+            <div class="flex flex-col gap-8 flex-wrap items-center max-lg:w-full">
                 <h2 class="text-xl font-bold underline">Technologies</h2>
-                <div class="flex gap-2 flex-wrap ml-4 max-lg:justify-center">
+                <div class="flex gap-2 flex-wrap justify-center">
                     {
-                        frontmatter.tags.sort().map((tag) => <p style={`background-color:${colors[tag]+"30"};border:1px solid ${colors[tag]}`} class="text-center capitalize backdrop-brightness-200 rounded-full py-1 px-4">{tag}</p>)
+                        frontmatter.tags.sort().map((tag) => <p style={`background-color:${colors[tag]+"30"};border:1px solid ${colors[tag]}`} class="text-center capitalize backdrop-brightness-200 rounded-full py-1 px-4 flex-1">{tag}</p>)
                     }
                 </div>
             </div>
         </section>
     
-        <section class="flex flex-col gap-8 max-lg:items-center">
+        <section class="flex flex-col gap-8 items-center bg-secondary p-4 rounded-xl">
             <h2 class="text-xl font-bold underline">Liens</h2>
-                <div class="flex gap-2 flex-wrap lg:ml-4 max-md:flex-col max-md:gap-8 max-lg:w-full max-lg:justify-evenly">
+                <div class="flex gap-2 flex-wrap max-md:flex-col max-md:gap-8 max-lg:w-full max-lg:justify-evenly">
                     {
                         frontmatter.repo && 
-                        <div class="flex flex-col max-lg:items-center">
+                        <div class="flex flex-col items-center">
                             <h3>Github :</h3>
-                            <a class="text-tertiary hover:underline" href={frontmatter.repo}>{frontmatter.repo}</a>
+                            <a class="text-tertiary hover:underline text-center" href={frontmatter.repo}>{frontmatter.repo}</a>
                         </div>
                     }
                     {
                         frontmatter.website &&
-                        <div class="flex flex-col max-lg:items-center">
+                        <div class="flex flex-col items-center">
                             <h3>Site web :</h3>
-                            <a class="text-tertiary hover:underline" href={frontmatter.website}>{frontmatter.website}</a>
+                            <a class="text-tertiary hover:underline text-center" href={frontmatter.website}>{frontmatter.website}</a>
                         </div>
                     }
                 </div>   
