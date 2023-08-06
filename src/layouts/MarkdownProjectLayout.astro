@@ -183,7 +183,7 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
             ? resetValue
             : toRight ? id + 1 : id - 1;
 
-            const newImg = images[newId];
+            const newImg = [...images][newId];
             changeCurrentImage(largeImg, newImg, newImg.id);
             setCurrentIndicator(newId)
         
