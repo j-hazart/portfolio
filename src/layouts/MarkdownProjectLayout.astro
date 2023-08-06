@@ -70,7 +70,7 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
             <h2 class="text-3xl font-bold">Gallerie</h2>
             <div class="container flex max-md:flex-col gap-8 w-full max-md:h-screen max-lg:h-[50vh] h-full relative max-md:hidden">
             {
-                images.map((img) => <div id={img.default.charAt(img.default.length - 5 )} style={`background: url(${img.default});background-repeat:no-repeat; background-position: center;background-size:cover`} class="image w-full h-full bg-cover cursor-pointer bg-center bg-no-repeat flex-1 rounded-xl hover:flex-[12] transition-all ease-in-out duration-700"></div> )
+                images.map((img, index) => <div id={`${index + 1}`} style={`background: url(${img.default});background-repeat:no-repeat; background-position: center;background-size:cover`} class="image w-full h-full bg-cover cursor-pointer bg-center bg-no-repeat flex-1 rounded-xl hover:flex-[12] transition-all ease-in-out duration-700"></div> )
             }
             </div>
             <div class="md:hidden flex flex-col gap-8">
@@ -146,7 +146,6 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
     const images = gallery.children;
     const imagesMaxNumber = images.length;
     let currentImageId = 1;
-    console.log(currentImageId);
 
     const indicators = document.querySelectorAll('.indicator');
 
@@ -156,7 +155,6 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
 
     [...images].forEach((img) => {
         img.addEventListener("click", (e) => {
-            console.log(largeImg, e.target, img.id);
             changeCurrentImage(largeImg, e.target, img.id)
             setCurrentIndicator(img.id - 1)
             figure.classList.toggle('hidden');
@@ -185,19 +183,8 @@ const images = allImages.filter((img) => img.default.includes(frontmatter.images
             ? resetValue
             : toRight ? id + 1 : id - 1;
 
-            const newImg = images[newId];
-
-            const checklog = {
-                currentImageId,
-                id,
-                comparator,
-                resetValue,
-                newId,
-                newImg,
-            }
-            Object.entries(checklog).forEach(([key, value]) => console.log(`${key}:${ key !== newImg ? value : [...value]}`))
-            console.log(newImg.id);
-
+            const newImg = [...images][newId];
+            console.log(newImg);
             changeCurrentImage(largeImg, newImg, newImg.id);
             setCurrentIndicator(newId)
         
