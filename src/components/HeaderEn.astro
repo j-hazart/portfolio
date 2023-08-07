@@ -1,8 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
+const { lang } = Astro.props
 
 import NavLink from "./NavLink.astro";
 import logo from "../assets/logo.svg";
@@ -10,7 +7,7 @@ import burger from "../assets/burger.svg";
 ---
 
 <header class="flex max-w-7xl h-9 w-full justify-between items-center">
-  <a href={`/${lang}`}><img src={logo} alt="logo" width="36px" /></a>
+  <a href="/fr"><img src={logo} alt="logo" width="36px" /></a>
   <img class="max-md:block hidden z-30" id="burger" src={burger} alt="" />
   <nav
     id="menu"
@@ -19,9 +16,9 @@ import burger from "../assets/burger.svg";
     <ul
       class="max-md:justify-start max-md:h-full max-md:text-2xl max-md:flex-col text-primary flex gap-8 uppercase font-bold items-center max-md:pt-16"
     >
-      <NavLink url={`/${lang}/${t('nav.about').path}`} title={t('nav.about').title} />
-      <NavLink url={`/${lang}/${t('nav.projects').path}`} title={t('nav.projects').title} />
-      <NavLink url={"contact"} title="contact" />
+      <NavLink url="presentation" title="présentation" />
+      <NavLink url="projets" title="projets" />
+      <NavLink url="contact" title="contact" />
     </ul>
   </nav>
 </header>

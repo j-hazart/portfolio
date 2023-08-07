@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownProjectLayout.astro
+layout: ../../../layouts/MarkdownProjectLayout.astro
 title: "Mü"
 description: "Site vitrine pour Mü entreprise"
 thumbnail: "/uploads/mu/mu-1.png"

@@ -1,6 +1,6 @@
 ---
-import SkillsType from "../components/SkillsType.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import SkillsType from "../../components/SkillsType.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import cv from "../docs/jessy_hazart_cv.pdf"
 
 
@@ -12,19 +12,17 @@ const versioning = ["git", "github"]
 <BaseLayout title="Jessy Hazart | Présentation">
     <main class="flex flex-col w-full max-md:h-max h-[calc(100vh-6.25rem)] max-w-7xl justify-center items-center text-primary max-md:gap-8 gap-16 max-lg:mt-8 ">
         <section class="max-lg:w-full flex flex-col gap-4 w-2/3 bg-secondary p-4 rounded-xl">
-            <h1 class="text-3xl text-center">Bonjour</h1>
+            <h1 class="text-3xl text-center">Hello</h1>
             <p class="text-center">
-                Passionné par l'univers du web et des nouvelles technologies 
-                depuis mon plus jeune âge, je me suis spécialisé dans le 
-                développement web afin de créer des solutions numériques 
-                innovantes et intuitives.
+                Passionate about the web and new technologies since a young age,
+                I have specialized in web development to create innovative and intuitive digital solutions.
             </p>
             <a class="self-center text-tertiary w-max text-lg relative after:content-[''] after:h-px after:left-[51%] after:right-[51%] after:bottom-0 after:bg-tertiary after:absolute hover:after:left-0 hover:after:right-0 after:transition-all" href={cv} target="_blank">
-                Consultez mon CV
+                My resume
             </a>
         </section>
         <section class=" flex flex-col gap-16 max-md:gap-8 w-full">
-            <h2 class="text-3xl text-center font-bold capitalize max-md:my-8">Mes compétences techniques</h2>
+            <h2 class="text-3xl text-center font-bold capitalize max-md:my-8">My hard skills</h2>
             <div class="flex flex-wrap gap-8 flex-1 max-md:gap-16">
                 <SkillsType type="front-end" technologies={frontend}/>
                 <SkillsType type="back-end" technologies={backend}/>

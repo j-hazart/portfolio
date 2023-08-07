@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownProjectLayout.astro
+layout: ../../../layouts/MarkdownProjectLayout.astro
 title: "Virtual ATM"
 description: "Application web d'un terminal bancaire virtuel"
 thumbnail: "/uploads/virtual-atm/virtual-atm-1.png"
