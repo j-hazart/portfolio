@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import avatar from "../../assets/avatar.png"
+import linkedin from "../../assets/linkedin.svg"
+import github from "../../assets/github.svg"
+import doc from "../../assets/cv.svg"
+import cv from "../../docs/jessy_hazart_cv.pdf"
+---
+
+<BaseLayout title="Jessy Hazart | Développeur web">
+    <main class="flex-col lg:flex-row flex w-screen h-[calc(100vh-6.25rem)] max-w-7xl justify-center items-center text-primary">
+        <section class="flex-1 flex flex-col max-lg:justify-center items-center gap-4">
+            <h1 class="capitalize text-5xl lg:text-6xl font-bold">jessy hazart</h1>
+            <p class="text-xl lg:text-3xl capitalize text-center px-2">Web Developer - JS | React | Express</p>
+            <div class="text-tertiary flex gap-4">
+                <a href="https://www.linkedin.com/in/jessy-hazart3250/" target="_blank">
+                    <img class="opacity-50 hover:opacity-100" src={linkedin} title="jessy-hazart3250" alt="linkedin logo" width="24"/>
+                </a>
+                <a href="https://github.com/j-hazart" target="_blank">
+                    <img class="opacity-50 hover:opacity-100" src={github} title="j-hazart" alt="github logo" width="24"/>
+                </a>
+                <a href={cv} target="_blank">
+                    <img class="opacity-50 hover:opacity-100" src={doc} title="Resume" alt="github logo" width="24"/>
+                </a>
+            </div>
+        </section>
+        <figure class="flex-1 flex justify-center">
+            <img class="max-lg:w-72 h-max lg:max-w-md" src={avatar} alt="Jessy Hazart photo" />
+        </figure>
+    </main>
+</BaseLayout>

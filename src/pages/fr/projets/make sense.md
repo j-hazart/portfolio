@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownProjectLayout.astro
+layout: ../../../layouts/MarkdownProjectLayout.astro
 title: "Make Sense"
 description: "Outil de gestion de prise de décision et d'idéation permettant à l'entreprise et ses employés de prendre des décisions."
 thumbnail: "/uploads/make-sense/make-sense-1.png"
