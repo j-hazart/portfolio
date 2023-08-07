@@ -1,8 +1,10 @@
 ---
 import Header from "../components/Header.astro"
+import { getLangFromUrl } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
 const { title } = Astro.props
 ---
-<html lang="fr">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />

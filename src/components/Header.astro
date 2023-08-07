@@ -1,12 +1,19 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { changeCurrentPathLang, getLangFromUrl, useTranslations } from '../i18n/utils';
+import { languages } from '../i18n/ui';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const currentPath = Astro.url.pathname;
+
+
+
 
 
 import NavLink from "./NavLink.astro";
 import logo from "../assets/logo.svg";
-import burger from "../assets/burger.svg";
+import burger from "/assets/burger.svg";
+import translate from "../assets/translate.svg";
 ---
 
 <header class="flex max-w-7xl h-9 w-full justify-between items-center">
@@ -21,7 +28,17 @@ import burger from "../assets/burger.svg";
     >
       <NavLink url={`/${lang}/${t('nav.about').path}`} title={t('nav.about').title} />
       <NavLink url={`/${lang}/${t('nav.projects').path}`} title={t('nav.projects').title} />
-      <NavLink url={"contact"} title="contact" />
+      <NavLink url={`/${lang}/contact`} title="contact" />
+      <li class="self">
+        <label class="flex bg-secondary relative w-max h-max " for="languages">
+          <img class="absolute top-1/2 -translate-y-1/2 left-0 scale-75 pointer-events-none" src={translate} alt="translate logo" aria-hidden="true">
+          <select name="languages" id="languages" class="bg-secondary pl-8 py-1 start-4 w-max ">
+            {
+              Object.entries(languages).map(([language, label]) => <option class="w-full" value={label} selected={language === lang} data-changeLangPath={changeCurrentPathLang(currentPath,lang,language)}>{label}</option>)
+            }
+          </select>
+        </label>
+      </li>
     </ul>
   </nav>
 </header>
@@ -38,6 +55,13 @@ import burger from "../assets/burger.svg";
     menu.classList.toggle("open");
     body.classList.toggle("overflow-hidden");
     const isOpen = [...menu.classList].includes("open");
-    burger.src = isOpen ? "src/assets/x-circle.svg" : "src/assets/burger.svg";
+    burger.src = isOpen ? "/assets/x-circle.svg" : "/assets/burger.svg";
   }
+
+  const languages = document.querySelector("#languages");
+
+    languages.addEventListener("change", (e) => {
+      window.location.replace(e.target.options[e.target.selectedIndex].dataset.changelangpath)
+    })
+    
 </script>

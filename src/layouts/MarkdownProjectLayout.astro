@@ -11,7 +11,6 @@ const {frontmatter} = Astro.props
 const allImages = await Astro.glob('/public/uploads/**/*');
 const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder))
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 <BaseLayout title={`Jessy Hazart | ${frontmatter.title}`}>
 <main class="flex max-lg:flex-col max-w-7xl w-full min-h-full lg:h-[calc(100vh-6.25rem)] max-md:pt-8 pt-16 text-primary gap-16 relative">
@@ -32,7 +31,7 @@ const t = useTranslations(lang);
             </div>
             <div class="md:hidden flex flex-col gap-8">
             {
-                images.map((img) => <img class="rounded-xl" src={img.default} alt={lang === "fr" ? `${t('screenshot')} ${frontmatter.title}` : `${frontmatter.title} ${t('screenshot')}`}/> )
+                images.map((img) => <img class="rounded-xl" src={img.default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`}/> )
             }
             </div>
         </section>
@@ -41,7 +40,7 @@ const t = useTranslations(lang);
     <aside class="flex-1 flex flex-col gap-8 h-full">
         <section class="flex bg-secondary p-4 rounded-xl">
             <div class="flex flex-col gap-8 flex-wrap items-center max-lg:w-full">
-                <h2 class="text-xl font-bold underline">Technologies</h2>
+                <h2 class="text-xl font-bold underline">{lang === "fr" ? "Technologies" : "Technology"}</h2>
                 <div class="flex gap-2 flex-wrap justify-center">
                     {
                         frontmatter.tags.sort().map((tag) => <p style={`background-color:${colors[tag]+"30"};border:1px solid ${colors[tag]}`} class="text-center capitalize backdrop-brightness-200 rounded-full py-1 px-4 flex-1">{tag}</p>)
@@ -51,7 +50,7 @@ const t = useTranslations(lang);
         </section>
     
         <section class="flex flex-col gap-8 items-center bg-secondary p-4 rounded-xl">
-            <h2 class="text-xl font-bold underline">Liens</h2>
+            <h2 class="text-xl font-bold underline">{lang === "fr" ? "Liens" : "Links"}</h2>
                 <div class="flex gap-2 flex-wrap max-md:flex-col max-md:gap-8 max-lg:w-full max-lg:justify-evenly">
                     {
                         frontmatter.repo && 
@@ -74,7 +73,7 @@ const t = useTranslations(lang);
 </main>
 <figure id="figure" class="absolute z-10 hidden flex-col h-full w-full top-0 left-0 bg-[#0000009b] justify-center items-center gap-4">
     <div class="md:w-2/3 2xl:w-1/2 h-max relative">
-        <img id="largeImg" class=" rounded-xl" src={images[0].default} alt={lang === "fr" ? `${t('screenshot')} ${frontmatter.title}` : `${frontmatter.title} ${t('screenshot')}`}>
+        <img id="largeImg" class=" rounded-xl" src={images[0].default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`}>
         <button id="leftButton" type="button" class="absolute top-1/2 -translate-y-1/2 -left-16"><img class="w-10" src={left} alt="left arrow"/></button>
         <button id="rightButton" type="button" class="absolute top-1/2 -translate-y-1/2 -right-16"><img class="w-10" src={right} alt="right arrow"/></button>
         <button id="closeButton" type="button" class="absolute -right-8 -top-8 text-primary">
