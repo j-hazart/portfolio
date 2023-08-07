@@ -15,5 +15,3 @@ export const ui = {
     'nav.projects': {path:'projets', title: 'projets'},
   },
 };
-/* ui[lang] */
-console.log(Object.entries(ui["en"]));
