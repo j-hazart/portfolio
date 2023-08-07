@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+---
+
+<BaseLayout title="Jessy Hazart | Développeur web" lang={lang}>
+        <main class="flex-col flex w-screen h-[calc(100vh-6.25rem)] max-w-7xl justify-center items-center text-primary">
+            <div class="flex flex-col justify-center items-center">
+                <h1 class="text-9xl font-bold mb-8">404</h1>
+                <p>{lang === "fr" ? "Il n'y a rien par ici" : "There is nothing here"}</p>
+                <a class="text-tertiary hover:underline" href={`/${lang}`}>{lang === "fr" ? "Retourner à la page d'accueil" : "Come back to home page"}</a>
+            </div>
+
+        </main>
+</BaseLayout>
