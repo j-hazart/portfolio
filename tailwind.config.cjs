@@ -11,9 +11,6 @@ module.exports = {
         "purple-dark": "#171424",
       },
     },
-    fontFamily: {
-      montserrat: ["Montserrat"],
-    },
   },
   plugins: [],
 };
