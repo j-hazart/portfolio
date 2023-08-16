@@ -12,7 +12,10 @@ const allImages = await Astro.glob('/public/uploads/**/*');
 const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder) && !img.default.includes("mobile-"))
 const lang = getLangFromUrl(Astro.url);
 ---
-<BaseLayout title={`Jessy Hazart | ${frontmatter.title}`}>
+<BaseLayout 
+title={`Jessy Hazart | ${frontmatter.title}`}
+metadescription={frontmatter.description}
+>
 <main class="flex max-lg:flex-col max-w-7xl w-full min-h-full lg:h-[calc(100vh-6.25rem)] max-md:pt-8 pt-16 text-primary gap-16 relative">
 
     <section class="flex flex-col gap-8 flex-[3] min-h-full">

@@ -2,7 +2,7 @@
 layout: ../../../layouts/MarkdownProjectLayout.astro
 title: "Virtual ATM"
 description: "Virtual Bank Terminal Web Application"
-thumbnail: "/uploads/virtual-atm/virtual-atm-1.png"
+thumbnail: "/uploads/virtual-atm/virtual-atm-1.webp"
 tags: [javascript, react, tailwind, node, express, prisma, git, github, mysql]
 imagesFolder: virtual-atm
 repo: 'https://github.com/j-hazart/virtual-atm.git'
