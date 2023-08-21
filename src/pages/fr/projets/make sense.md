@@ -2,7 +2,7 @@
 layout: ../../../layouts/MarkdownProjectLayout.astro
 title: "Make Sense"
 description: "Outil de gestion de prise de décision et d'idéation permettant à l'entreprise et ses employés de prendre des décisions."
-thumbnail: "/uploads/make-sense/make-sense-1.png"
+thumbnail: "/uploads/make-sense/make-sense-1.webp"
 tags: [javascript, react, express, mysql, tailwind, node, git, github]
 imagesFolder: make-sense
 repo: "https://github.com/j-hazart/Project-3-make-sense"

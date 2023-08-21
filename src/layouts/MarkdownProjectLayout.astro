@@ -4,15 +4,18 @@ import colors from "../services/technoColor"
 import close from "../assets/x-circle.svg"
 import left from "../assets/left.svg"
 import right from "../assets/right.svg"
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl} from '../i18n/utils';
 
 
 const {frontmatter} = Astro.props
 const allImages = await Astro.glob('/public/uploads/**/*');
-const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder))
+const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder) && !img.default.includes("mobile-"))
 const lang = getLangFromUrl(Astro.url);
 ---
-<BaseLayout title={`Jessy Hazart | ${frontmatter.title}`}>
+<BaseLayout 
+title={`Jessy Hazart | ${frontmatter.title}`}
+metadescription={frontmatter.description}
+>
 <main class="flex max-lg:flex-col max-w-7xl w-full min-h-full lg:h-[calc(100vh-6.25rem)] max-md:pt-8 pt-16 text-primary gap-16 relative">
 
     <section class="flex flex-col gap-8 flex-[3] min-h-full">
@@ -22,7 +25,7 @@ const lang = getLangFromUrl(Astro.url);
             <slot />
         </section>
 
-        <section class="h-full justify-center items-center flex flex-col gap-4 mt-8 flex-1">
+        <section class="md:max-h-[600px] justify-center items-center flex flex-col gap-4 mt-8 flex-1">
             <h2 class="text-3xl font-bold">{lang === "fr" ? "Galerie" : "Gallery"}</h2>
             <div class="container flex max-md:flex-col gap-8 w-full max-md:h-screen max-lg:h-[50vh] h-full relative max-md:hidden">
             {
@@ -31,7 +34,7 @@ const lang = getLangFromUrl(Astro.url);
             </div>
             <div class="md:hidden flex flex-col gap-8">
             {
-                images.map((img) => <img class="rounded-xl" src={img.default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`}/> )
+                images.map((img) => <img class="rounded-xl" src={img.default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`} width="755px" height="480px"/> )
             }
             </div>
         </section>
@@ -72,8 +75,8 @@ const lang = getLangFromUrl(Astro.url);
     
 </main>
 <figure id="figure" class="absolute z-10 hidden flex-col h-full w-full top-0 left-0 bg-[#0000009b] justify-center items-center gap-4">
-    <div class="md:w-2/3 2xl:w-1/2 h-max relative">
-        <img id="largeImg" class=" rounded-xl" src={images[0].default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`}>
+    <div class="md:w-2/3 2xl:w-1/2 h-max relative flex justify-center">
+        <img id="largeImg" class=" rounded-xl" src={images[0].default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`} width="755px" height="480px">
         <button id="leftButton" type="button" class="absolute top-1/2 -translate-y-1/2 -left-16"><img class="w-10" src={left} alt="left arrow"/></button>
         <button id="rightButton" type="button" class="absolute top-1/2 -translate-y-1/2 -right-16"><img class="w-10" src={right} alt="right arrow"/></button>
         <button id="closeButton" type="button" class="absolute -right-8 -top-8 text-primary">

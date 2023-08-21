@@ -2,7 +2,7 @@
 layout: ../../../layouts/MarkdownProjectLayout.astro
 title: "Mü"
 description: "Site vitrine pour Mü entreprise"
-thumbnail: "/uploads/mu/mu-1.png"
+thumbnail: "/uploads/mu/mu-1.webp"
 tags: [javascript, astro, tailwind, git, github]
 imagesFolder: mu
 website: 'https://www.muentreprise.com/'
