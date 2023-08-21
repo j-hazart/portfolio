@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import avatar from "/assets/avatar.webp"
 import linkedin from "../../assets/linkedin.svg"
 import github from "../../assets/github.svg"
 import doc from "../../assets/cv.svg"
 import cv from "../../docs/jessy_hazart_cv.pdf"
+import HomeAvatar from "../../components/HomeAvatar.astro";
 ---
 
 <BaseLayout 
@@ -28,8 +28,6 @@ import cv from "../../docs/jessy_hazart_cv.pdf"
                 </a>
             </div>
         </section>
-        <figure class="flex-1 flex justify-center">
-            <img class="scale-75 aspect-square w-max h-max" src={avatar} alt="photo de Jessy Hazart" width="612px" height="612px"/>
-        </figure>
+        <HomeAvatar />
     </main>
 </BaseLayout>

@@ -1,8 +1,9 @@
 ---
-import { changeCurrentPathLang, getLangFromUrl, useTranslations } from '../i18n/utils';
+import { changeCurrentPathLang, getLangFromUrl, useTranslations, useAltTranslations } from '../i18n/utils';
 import { languages } from '../i18n/ui';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const altT = useAltTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 
@@ -18,7 +19,7 @@ import translate from "../assets/translate.svg";
 
 <header class="flex max-w-7xl h-9 w-full justify-between items-center">
   <a href={`/${lang}`}><img src={logo} alt="logo" width="36px" height="36px" /></a>
-  <img class="max-md:block hidden z-30" id="burger" src={burger} alt={lang === "fr" ? 'bouton burger' : 'burger button'} width="36px" height="36px" />
+  <img class="max-md:block hidden z-30" id="burger" src={burger} alt={altT('burger')} width="36px" height="36px" />
   <nav
     id="menu"
     class="max-md:hidden max-md:absolute top-20 left-0 max-md:w-full max-md:h-[calc(100%-5rem)] max-md:z-20 flex max-md:justify-center max-md:items-center max-md:bg-gradient-to-br max-md:from-purple-light max-md:to-purple-dark max-md:bg-fixed transition-all"
@@ -31,7 +32,7 @@ import translate from "../assets/translate.svg";
       <NavLink url={`/${lang}/contact`} title="contact" />
       <li class="self">
         <label class="flex bg-secondary relative w-max h-max " for="languages">
-          <img class="absolute top-1/2 -translate-y-1/2 left-0 scale-75 pointer-events-none" src={translate} alt="translate logo" aria-hidden="true">
+          <img class="absolute top-1/2 -translate-y-1/2 left-0 scale-75 pointer-events-none" src={translate} alt={altT("translate")} aria-hidden="true">
           <select name="languages" id="languages" class="bg-secondary pl-8 py-1 start-4 w-max ">
             {
               Object.entries(languages).map(([language, label]) => <option class="w-full" value={label} selected={language === lang} data-changeLangPath={changeCurrentPathLang(currentPath,lang,language)}>{label}</option>)

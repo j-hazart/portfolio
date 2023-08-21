@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import avatar from "../../assets/avatar.png"
 import linkedin from "../../assets/linkedin.svg"
 import github from "../../assets/github.svg"
 import doc from "../../assets/cv.svg"
 import cv from "../../docs/jessy_hazart_cv.pdf"
+import HomeAvatar from "../../components/HomeAvatar.astro";
 ---
 
 <BaseLayout 
@@ -27,8 +27,6 @@ metadescription="Explore the portfolio of Jessy Hazart, a dedicated web develope
                 </a>
             </div>
         </section>
-        <figure class="flex-1 flex justify-center">
-            <img class="max-lg:w-72 h-max lg:max-w-md" src={avatar} alt="Jessy Hazart photo" />
-        </figure>
+        <HomeAvatar />
     </main>
 </BaseLayout>
