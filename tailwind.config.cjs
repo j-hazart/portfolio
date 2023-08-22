@@ -5,10 +5,10 @@ module.exports = {
     extend: {
       colors: {
         primary: "#f2f6fa",
-        secondary: "#3e3750",
-        tertiary: "#ff7e33",
-        "purple-light": "#2a233e",
-        "purple-dark": "#171424",
+        secondary: "#1F2124",
+        tertiary: "#F68657",
+        "purple-light": "#383A3F",
+        "purple-dark": "#1F2124",
       },
     },
   },
