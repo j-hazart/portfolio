@@ -13,8 +13,9 @@ const { title, metadescription } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="relative overflow-x-hidden bg-gradient-to-br from-light to-dark min-h-screen h-max max-w-screen flex flex-col items-center p-8">
+	<body class="relative overflow-x-hidden bg-gradient-to-br from-light to-dark min-h-screen h-max max-w-screen flex flex-col items-center p-8 mix-blend-lighten">
         <Header />
         <slot />
+		<div class="bg-cover bg-center bg-no-repeat h-full w-full absolute top-0 left-0 opacity-5 -z-10" style="background-image: url('/assets/pyragray.svg');"></div>
 	</body>
 </html>
