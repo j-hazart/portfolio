@@ -26,6 +26,8 @@ export const alt = {
     "left.arrow": "left arrow",
     "right.arrow": "right arrow",
     "button.close": "close button",
+    "from": "from",
+    "to": "to",
   },
   fr: {
     "avatar": "Photo de Jessy Hazart",
@@ -36,5 +38,7 @@ export const alt = {
     "left.arrow": "flèche gauche",
     "right.arrow": "flèche droite",
     "button.close": "bouton fermer",
+    "from": "du",
+    "to": "au",
   },
 };

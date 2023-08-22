@@ -2,6 +2,8 @@
 layout: ../../../layouts/MarkdownProjectLayout.astro
 title: "Lalambic"
 description: "Catalog of cocktail recipes"
+from: "10/2022"
+to: "11/2022"
 thumbnail: "/uploads/lalambic/lalambic-1.webp"
 tags: [javascript, react, git, github]
 imagesFolder: lalambic
