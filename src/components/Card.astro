@@ -18,7 +18,7 @@ const {url, title, thumbnail, description} = Astro.props;
 </li> -->
 <li class="card sm:max-w-3xl max-w-sm hover:underline bg-secondary p-2 rounded-2xl">
     <a href={url}>
-        <figure class="flex overflow-hidden gap-8 items-center max-sm:flex-col">
+        <figure class="flex bg-secondary  overflow-hidden gap-8 items-center max-sm:flex-col">
             <img class="flex-1 w-1/2 max-sm:w-full rounded-xl" src={thumbnail} alt={`${title} ${t("thumbnail")}`} width="755px" height="480px">
             <figcaption class="flex flex-col flex-1 sm:pr-8 max-sm:px-8 max-sm:pb-8 gap-4 sm:gap-8 items-center">
                 <h2 class="text-2xl font-bold">{title}</h2>
