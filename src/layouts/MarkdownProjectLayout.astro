@@ -9,7 +9,7 @@ import { getLangFromUrl, useAltTranslations} from '../i18n/utils';
 
 const {frontmatter} = Astro.props
 const allImages = await Astro.glob('/public/uploads/**/*');
-const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder) && !img.default.includes("mobile-"))
+const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder))
 const lang = getLangFromUrl(Astro.url);
 const t = useAltTranslations(lang);
 ---
@@ -43,7 +43,7 @@ metadescription={frontmatter.description}
 
     <aside class="flex-1 flex flex-col gap-8 h-full">
         <section class="flex bg-secondary p-4 rounded-xl">
-            <div class="flex flex-col gap-8 flex-wrap items-center max-lg:w-full">
+            <div class="flex flex-col gap-4 flex-wrap items-center max-lg:w-full">
                 <h2 class="text-xl font-bold">Technologies</h2>
                 <div class="flex gap-2 flex-wrap justify-center">
                     {
@@ -53,21 +53,21 @@ metadescription={frontmatter.description}
             </div>
         </section>
     
-        <section class="flex flex-col gap-8 items-center bg-secondary p-4 rounded-xl">
+        <section class="flex flex-col gap-4 items-center bg-secondary p-4 rounded-xl">
             <h2 class="text-xl font-bold">{lang === "fr" ? "Liens" : "Links"}</h2>
-                <div class="flex gap-2 flex-wrap max-md:flex-col max-md:gap-8 max-lg:w-full max-lg:justify-evenly">
+                <div class="flex gap-4 flex-wrap max-md:flex-col max-lg:w-full max-lg:justify-evenly">
                     {
-                        frontmatter.repo && 
-                        <div class="flex flex-col items-center">
-                            <h3>Github :</h3>
-                            <a class="text-tertiary hover:underline text-center" href={frontmatter.repo}>{frontmatter.repo}</a>
+                        frontmatter.website &&
+                        <div class="flex flex-col items-center w-full">
+                            <h3>Site web :</h3>
+                            <a class="text-tertiary hover:underline text-center" href={frontmatter.website}>{frontmatter.website}</a>
                         </div>
                     }
                     {
-                        frontmatter.website &&
-                        <div class="flex flex-col items-center">
-                            <h3>Site web :</h3>
-                            <a class="text-tertiary hover:underline text-center" href={frontmatter.website}>{frontmatter.website}</a>
+                        frontmatter.repo && 
+                        <div class="flex flex-col items-center w-full">
+                            <h3>Github :</h3>
+                            <a class="text-tertiary hover:underline text-center" href={frontmatter.repo}>{frontmatter.repo}</a>
                         </div>
                     }
                 </div>   
