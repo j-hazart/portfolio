@@ -4,13 +4,14 @@ import colors from "../services/technoColor"
 import close from "../assets/x-circle.svg"
 import left from "../assets/left.svg"
 import right from "../assets/right.svg"
-import { getLangFromUrl} from '../i18n/utils';
+import { getLangFromUrl, useAltTranslations} from '../i18n/utils';
 
 
 const {frontmatter} = Astro.props
 const allImages = await Astro.glob('/public/uploads/**/*');
 const images = allImages.filter((img) => img.default.includes(frontmatter.imagesFolder) && !img.default.includes("mobile-"))
 const lang = getLangFromUrl(Astro.url);
+const t = useAltTranslations(lang);
 ---
 <BaseLayout 
 title={`Jessy Hazart | ${frontmatter.title}`}
@@ -34,7 +35,7 @@ metadescription={frontmatter.description}
             </div>
             <div class="md:hidden flex flex-col gap-8">
             {
-                images.map((img) => <img class="rounded-xl" src={img.default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`} width="755px" height="480px"/> )
+                images.map((img, index) => <img class="rounded-xl" src={img.default} alt={`${t("screenshot")} ${frontmatter.title} ${index + 1}`} width="755px" height="480px"/> )
             }
             </div>
         </section>
@@ -77,10 +78,10 @@ metadescription={frontmatter.description}
 <figure id="figure" class="absolute z-10 hidden flex-col h-full w-full top-0 left-0 bg-[#0000009b] justify-center items-center gap-4">
     <div class="md:w-2/3 2xl:w-1/2 h-max relative flex justify-center">
         <img id="largeImg" class=" rounded-xl" src={images[0].default} alt={lang === "fr" ? `Capture d'écran ${frontmatter.title}` : `${frontmatter.title} screenshot`} width="755px" height="480px">
-        <button id="leftButton" type="button" class="absolute top-1/2 -translate-y-1/2 -left-16"><img class="w-10" src={left} alt="left arrow"/></button>
-        <button id="rightButton" type="button" class="absolute top-1/2 -translate-y-1/2 -right-16"><img class="w-10" src={right} alt="right arrow"/></button>
+        <button id="leftButton" type="button" class="absolute top-1/2 -translate-y-1/2 -left-16"><img class="w-10" src={left} alt={t("left.arrow")}/></button>
+        <button id="rightButton" type="button" class="absolute top-1/2 -translate-y-1/2 -right-16"><img class="w-10" src={right} alt={t("right.arrow")}/></button>
         <button id="closeButton" type="button" class="absolute -right-8 -top-8 text-primary">
-            <img src={close} alt="close button">
+            <img src={close} alt={t("button.close")}>
         </button>
     </div>
     <ul id="indicators" class="flex gap-8">

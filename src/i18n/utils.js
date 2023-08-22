@@ -1,4 +1,4 @@
-import { ui, defaultLang, languages } from './ui';
+import { alt, ui, defaultLang, languages } from './ui';
 
 export function getLangFromUrl(url) {
   const [, lang] = url.pathname.split('/');
@@ -9,6 +9,11 @@ export function getLangFromUrl(url) {
 export function useTranslations(lang) {
   return function t(key) {
     return ui[lang][key] || ui[defaultLang][key];
+  }
+}
+export function useAltTranslations(lang) {
+  return function t(key) {
+    return alt[lang][key] || alt[defaultLang][key];
   }
 }
 

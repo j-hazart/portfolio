@@ -1,0 +1,12 @@
+---
+import avatar from "/assets/avatar.webp"
+import {  getLangFromUrl, useAltTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useAltTranslations(lang);
+
+
+---
+<figure class="flex-1 flex justify-center">
+    <img class="scale-75 aspect-square w-max h-max" src={avatar} alt={t('avatar')} width="612px" height="612px"/>
+</figure>
