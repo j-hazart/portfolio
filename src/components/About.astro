@@ -1,0 +1,33 @@
+---
+import SkillsType from "./SkillsType.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import cv from "../docs/jessy_hazart_cv.pdf"
+import { getLangFromUrl, useAltTranslations,} from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useAltTranslations(lang);
+
+const frontend = ["javascript", "react", "astro", "tailwind"]
+const backend = ["node", "express", "mysql", "prisma"]
+const versioning = ["git", "github"]
+---
+
+<BaseLayout title={`Jessy Hazart | ${t("about.pageTitle")}`} metadescription={t("meta.about")}>
+    <main class="flex flex-col w-full max-md:h-max h-[calc(100vh-6.25rem)] max-w-7xl justify-center items-center text-primary max-md:gap-8 gap-16 max-lg:mt-8 ">
+        <section class="max-lg:w-full flex flex-col gap-4 w-2/3 bg-secondary p-4 rounded-xl">
+            <h1 class="text-3xl text-center">{t("hello")}</h1>
+            <p class="text-center">{t("about.presentation")}</p>
+            <a class="self-center text-tertiary w-max text-lg relative after:content-[''] after:h-px after:left-[51%] after:right-[51%] after:bottom-0 after:bg-tertiary after:absolute hover:after:left-0 hover:after:right-0 after:transition-all" href={cv} target="_blank">
+                {t("about.cv")}
+            </a>
+        </section>
+        <section class=" flex flex-col gap-16 max-md:gap-8 w-full">
+            <h2 class="text-3xl text-center font-bold capitalize max-md:my-8">My hard skills</h2>
+            <div class="flex flex-wrap gap-8 flex-1 max-md:gap-16">
+                <SkillsType type="front-end" technologies={frontend}/>
+                <SkillsType type="back-end" technologies={backend}/>
+                <SkillsType type="versioning" technologies={versioning}/>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
