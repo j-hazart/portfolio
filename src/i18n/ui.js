@@ -45,6 +45,8 @@ export const alt = {
     "contact.title": "leave your message",
     "contact.name": "name",
     "contact.send": "send",
+    "projects.pageTitle": "Projects",
+    "projects.title": "my projects",
   },
   fr: {
     avatar: "Photo de Jessy Hazart",
@@ -74,5 +76,7 @@ export const alt = {
     "contact.title": "laissez votre message",
     "contact.name": "nom",
     "contact.send": "envoyer",
+    "projects.pageTitle": "Projets",
+    "projects.title": "mes projets",
   },
 };
