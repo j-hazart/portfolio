@@ -30,14 +30,14 @@ metadescription={frontmatter.description}
 
         <section class="md:max-h-[600px] justify-center items-center flex flex-col gap-4 mt-8 flex-1">
             <h2 class="text-3xl font-bold">{lang === "fr" ? "Galerie" : "Gallery"}</h2>
-            <div class="container flex max-md:flex-col gap-8 w-full max-md:h-screen max-lg:h-[50vh] h-full relative max-md:hidden">
+            <div class="container flex max-lg:flex-col gap-8 w-full  max-md:h-[50vh] h-full relative max-lg:hidden">
             {
                 images.map((img, index) => <div id={`${index + 1}`} style={`background: url(${img.default});background-repeat:no-repeat; background-position: center;background-size:cover`} class="image w-full h-full bg-cover cursor-pointer bg-center bg-no-repeat flex-1 rounded-xl hover:flex-[12] transition-all ease-in-out duration-700"></div> )
             }
             </div>
-            <div class="md:hidden flex flex-col gap-8">
+            <div class="lg:hidden flex flex-wrap w-full gap-8 justify-center">
             {
-                images.map((img, index) => <img class="rounded-xl" src={img.default} alt={`${t("screenshot")} ${frontmatter.title} ${index + 1}`} width="755px" height="480px"/> )
+                images.map((img, index) => <img class="rounded-xl md:w-[calc(50%-1rem)] sm:max-w-lg" src={img.default} alt={`${t("screenshot")} ${frontmatter.title} ${index + 1}`} width="755px" height="480px"/> )
             }
             </div>
         </section>
