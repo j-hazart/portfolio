@@ -62,14 +62,14 @@ metadescription={frontmatter.description}
                         frontmatter.website &&
                         <div class="flex flex-col items-center w-full">
                             <h3>Site web :</h3>
-                            <a class="text-tertiary hover:underline text-center" href={frontmatter.website}>{frontmatter.website}</a>
+                            <a class="text-tertiary hover:underline text-center" href={frontmatter.website} target="_blank">{frontmatter.website}</a>
                         </div>
                     }
                     {
                         frontmatter.repo && 
                         <div class="flex flex-col items-center w-full">
                             <h3>Github :</h3>
-                            <a class="text-tertiary hover:underline text-center" href={frontmatter.repo}>{frontmatter.repo}</a>
+                            <a class="text-tertiary hover:underline text-center" href={frontmatter.repo} target="_blank">{frontmatter.repo}</a>
                         </div>
                     }
                 </div>   
