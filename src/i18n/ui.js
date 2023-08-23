@@ -42,6 +42,9 @@ export const alt = {
       "Passionate about the web and new technologies since a young age, I have specialized in web development to create innovative and intuitive digital solutions.",
     "about.cv": "My resume",
     "about.pageTitle": "About me",
+    "contact.title": "leave your message",
+    "contact.name": "name",
+    "contact.send": "send",
   },
   fr: {
     avatar: "Photo de Jessy Hazart",
@@ -68,5 +71,8 @@ export const alt = {
       "Passionné par l'univers du web et des nouvelles technologies depuis mon plus jeune âge, je me suis spécialisé dans le développement web afin de créer des solutions numériques innovantes et intuitives.",
     "about.cv": "Consultez mon CV",
     "about.pageTitle": "À propos de moi",
+    "contact.title": "laissez votre message",
+    "contact.name": "nom",
+    "contact.send": "envoyer",
   },
 };
