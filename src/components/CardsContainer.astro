@@ -24,19 +24,8 @@ const projectsByDateDesc = projects.sort((a, b) => {
 
 
 ---
-<!-- <ul class="flex flex-wrap gap-16 justify-center">
-  {
-    projects.map((project) => (
-      <Card
-        url={project.url}
-        title={project.frontmatter.title}
-        thumbnail={project.frontmatter.thumbnail}
-        description={project.frontmatter.description}
-      />
-    ))
-  }
-</ul> -->
-<ul id="cards-container" class="flex flex-col gap-16 items-center">
+
+<ul id="cards-container" class="flex flex-wrap gap-8">
   {
     projectsByDateDesc.map((project) => (
       <Card

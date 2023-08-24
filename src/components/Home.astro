@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import avatar from "/assets/jessy-h.webp"
+import linkedin from "/assets/linkedinAlt.svg"
+import github from "/assets/githubAlt.svg"
+import doc from "../assets/cvAlt.svg"
+import cv from "../docs/jessy_hazart_cv.pdf"
+import SocialHomeLink from "./SocialHomeLink.astro";
+
+import { getLangFromUrl, useAltTranslations} from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useAltTranslations(lang);
+---
+<BaseLayout title={`Jessy Hazart | ${t("activity")}` } lang={lang} metadescription={t("meta.home")}> 
+    <main class="text-primary w-full  max-w-7xl h-full min-h-screen -mt-[4.25rem] -mb-8">
+        <section class="grid grid-cols-1 lg:grid-cols-2 -mx-8 place-items-center">
+            <div id="content" class="flex flex-col justify-center items-center h-screen w-full bg-cover bg-center bg-no-repeat p-8 ">
+                <div  class="flex flex-col justify-center items-center gap-4 max-lg:backdrop-brightness-50 backdrop-blur-sm max-lg:p-4 max-lg:shadow-2xl rounded-2xl max-lg:border-2 border-primary">
+                    <h1 class="capitalize text-6xl font-bold text-center ">jessy hazart</h1>
+                    <p class="text-xl lg:text-3xl capitalize text-center px-2">{`${t("activity")} - JS | React | Express`}</p>
+                    <div class="text-tertiary flex gap-4">
+                        <SocialHomeLink link="https://www.linkedin.com/in/jessy-hazart3250/" src={linkedin} title="jessy-hazart3250" logoName="linkedin"/>
+                        <SocialHomeLink link="https://github.com/j-hazart" src={github} title="j-hazart" logoName="github"/>
+                        <SocialHomeLink link={cv} src={doc} title="CV" logoName="cv"/>
+                    </div>
+                </div>
+            </div>
+            <div style={`background-image: url(${avatar})`} class="h-screen w-1/2 max-lg:hidden bg-cover bg-center bg-no-repeat absolute right-0 "></div>
+        </section>
+    </main>
+</BaseLayout>
+
+<style>
+    #content{
+        background-image: url("/assets/jessy-h-medium.webp")
+    }
+    @media (min-width: 1024px) {
+    #content {
+        background: none;
+    }
+}
+</style>

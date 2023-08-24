@@ -1,0 +1,6 @@
+---
+const {link,src,title, logoName} = Astro.props;
+---
+<a href={link} target="_blank">
+    <img class="opacity-50 hover:opacity-100" src={src} title={title} alt={`${logoName} logo`} width="24px" height="24px"/>
+</a>
