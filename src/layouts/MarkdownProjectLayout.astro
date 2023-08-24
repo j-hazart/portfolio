@@ -17,18 +17,18 @@ const t = useAltTranslations(lang);
 title={`Jessy Hazart | ${frontmatter.title}`}
 metadescription={frontmatter.description}
 >
-<main class="flex max-lg:flex-col max-w-7xl w-full min-h-full lg:h-[calc(100vh-6.25rem)] max-md:pt-8 pt-16 text-primary gap-16 relative">
+<main class="grid lg:grid-cols-4 max-w-7xl w-full lg:h-[calc(100vh-6.25rem)] max-md:pt-8 pt-16 text-primary gap-16 relative">
 
-    <section class="flex flex-col gap-8 flex-[3] min-h-full">
+    <section class="lg:col-span-3 flex flex-col gap-8 lg:flex-[3] min-h-full">
         <div>
             <h1 class="text-4xl font-bold capitalize max-md:text-center">{frontmatter.title}</h1>
             <p class="capitalize italic text-sm opacity-60 max-md:text-center">{`${t("from")} ${frontmatter.from} ${t("to")} ${frontmatter.to}`}</p>
         </div>
-        <section class=" gap-4 flex flex-col">
+        <section class=" gap-4 flex flex-col max-md:text-center">
             <slot />
         </section>
 
-        <section class="md:max-h-[600px] justify-center items-center flex flex-col gap-4 mt-8 flex-1">
+        <section class="lg:max-h-[600px] justify-center items-center flex flex-col gap-4 mt-8 flex-1">
             <h2 class="text-3xl font-bold">{lang === "fr" ? "Galerie" : "Gallery"}</h2>
             <div class="container flex max-lg:flex-col gap-8 w-full  max-md:h-[50vh] h-full relative max-lg:hidden">
             {
@@ -43,7 +43,7 @@ metadescription={frontmatter.description}
         </section>
     </section>
 
-    <aside class="flex-1 flex flex-col gap-8 h-full">
+    <aside class="lg:flex-1 flex flex-col gap-8 h-full">
         <section class="flex bg-secondary p-4 rounded-xl">
             <div class="flex flex-col gap-4 flex-wrap items-center max-lg:w-full">
                 <h2 class="text-xl font-bold">Technologies</h2>
