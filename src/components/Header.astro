@@ -33,9 +33,9 @@ import translate from "../assets/translate.svg";
       <NavLink url={`/${lang}/${t('nav.projects').path}`} title={t('nav.projects').title} />
       <NavLink url={`/${lang}/contact`} title="contact" />
       <li class="self">
-        <label class="flex bg-secondary relative w-max h-max " for="languages">
+        <label class="flex bg-secondary relative w-max h-max" for="languages">
           <img class="absolute top-1/2 -translate-y-1/2 left-0 scale-75 pointer-events-none" src={translate} alt={altT("translate")} aria-hidden="true">
-          <select name="languages" id="languages" class="bg-secondary pl-8 py-1 start-4 w-max ">
+          <select name="languages" id="languages" class="bg-secondary pl-8 pr-1 py-1 start-4 w-max ">
             {
               Object.entries(languages).map(([language, label]) => <option class="w-full" value={label} selected={language === lang} data-changeLangPath={changeCurrentPathLang(currentPath,lang,language)}>{label}</option>)
             }
@@ -45,6 +45,12 @@ import translate from "../assets/translate.svg";
     </ul>
   </nav>
 </header>
+
+<style>
+  select {
+    -webkit-appearance: none;
+  }
+</style>
 
 <script>
   const burger = document.getElementById("burger");
