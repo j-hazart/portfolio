@@ -8,6 +8,7 @@ thumbnail: "/uploads/virtual-atm/virtual-atm-1.webp"
 tags: [javascript, react, tailwind, node, express, prisma, git, github, mysql]
 imagesFolder: virtual-atm
 repo: 'https://github.com/j-hazart/virtual-atm.git'
+website: 'https://virtualatm.netlify.app'
 ---
 
 Projet personnel d'une application web inspirée d'un distributeur

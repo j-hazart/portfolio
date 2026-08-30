@@ -8,6 +8,7 @@ thumbnail: "/uploads/virtual-atm/virtual-atm-1.webp"
 tags: [javascript, react, tailwind, node, express, prisma, git, github, mysql]
 imagesFolder: virtual-atm
 repo: 'https://github.com/j-hazart/virtual-atm.git'
+website: 'https://virtualatm.netlify.app'
 ---
 
 This personal project is a web application inspired by a modernized version of an automated teller machine, designed in a neumorphic style.
