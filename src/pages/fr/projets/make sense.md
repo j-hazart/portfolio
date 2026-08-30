@@ -8,6 +8,7 @@ thumbnail: "/uploads/make-sense/make-sense-1.webp"
 tags: [javascript, react, express, mysql, tailwind, node, git, github]
 imagesFolder: make-sense
 repo: "https://github.com/j-hazart/Project-3-make-sense"
+website: 'https://make-sense-demo.netlify.app/'
 ---
 
 Make sense est une plateforme interne, un outil de gestion de prise 
